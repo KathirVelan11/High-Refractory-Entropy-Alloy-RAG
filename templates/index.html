@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HREA RAG — Refractory High-Entropy Alloy Document Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>HREA&nbsp;RAG</h1>
+    <p class="tag">High&nbsp;Refractory&nbsp;Entropy&nbsp;Alloy document search · hybrid retrieval · no&nbsp;LLM</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1 · Add documents</h2>
+      <div id="drop" class="drop">
+        <input type="file" id="files" multiple accept=".pdf,.txt,.md,.docx" hidden />
+        <p>Drag &amp; drop or <button type="button" id="browse" class="link">browse</button></p>
+        <p class="hint">PDF, DOCX, TXT, MD</p>
+      </div>
+      <button id="uploadBtn" class="primary" disabled>Index files</button>
+      <div id="uploadStatus" class="status"></div>
+      <div class="corpus">
+        <span id="corpusInfo">No documents indexed.</span>
+        <button id="resetBtn" class="link danger" hidden>reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2 · Ask a question</h2>
+      <div class="ask">
+        <input type="text" id="question" placeholder="e.g. What stabilizes the BCC phase in MoNbTaW?" />
+        <button id="askBtn" class="primary">Search</button>
+      </div>
+      <div class="opts">
+        <label>Top results
+          <input type="number" id="topk" value="5" min="1" max="20" />
+        </label>
+        <span id="latency" class="latency"></span>
+      </div>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Hybrid retrieval: semantic (vector) + keyword (BM25), fused with Reciprocal Rank Fusion.</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
