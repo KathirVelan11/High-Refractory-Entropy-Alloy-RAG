@@ -102,5 +102,13 @@ def reset():
 
 
 if __name__ == "__main__":
+    host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "5000"))
-    app.run(host="127.0.0.1", port=port, debug=False)
+    # Auto-open the browser for the common "just run it" case (not in Docker).
+    if os.environ.get("HREA_OPEN_BROWSER", "1") == "1" and host in ("127.0.0.1", "localhost"):
+        import threading
+        import webbrowser
+
+        threading.Timer(1.5, lambda: webbrowser.open(f"http://127.0.0.1:{port}")).start()
+    print(f" * HREA RAG running at http://127.0.0.1:{port}  (Ctrl+C to stop)")
+    app.run(host=host, port=port, debug=False)

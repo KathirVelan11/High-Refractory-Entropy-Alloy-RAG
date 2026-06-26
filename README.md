@@ -33,7 +33,26 @@ without a language model:
 Each result shows its RRF score, semantic similarity, BM25 score, and whether
 it was found by semantic search, keyword search, or both.
 
-## Quick start
+## Run it — the easy way (no commands)
+
+You only need [Python 3.9+](https://www.python.org/downloads/) installed
+(on Windows, tick *"Add python.exe to PATH"* during install).
+
+- **Windows:** double-click **`run.bat`**
+- **macOS / Linux:** run **`./run.sh`** in a terminal
+
+That's it. The first run sets up everything automatically and then your
+browser opens at <http://127.0.0.1:5000>. Later runs start instantly.
+
+### Or with Docker (one command)
+
+```bash
+docker build -t hrea-rag . && docker run -p 5000:5000 hrea-rag
+```
+
+Then open <http://127.0.0.1:5000>.
+
+## Run it — manually
 
 ```bash
 # 1. (recommended) create a virtual environment
@@ -51,6 +70,8 @@ python app.py
 ```
 
 Open <http://127.0.0.1:5000> in your browser.
+
+## How to use it
 
 1. Drag in one or more documents and click **Index files**
    (the first run downloads the ~80 MB embedding model — one time only).
