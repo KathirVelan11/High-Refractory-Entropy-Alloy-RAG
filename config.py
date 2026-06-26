@@ -35,7 +35,7 @@ RRF_K = int(_env("HREA_RRF_K", "60"))
 CANDIDATE_POOL = int(_env("HREA_CANDIDATE_POOL", "20"))
 
 # --- Upload limits -------------------------------------------------------
-ALLOWED_EXTENSIONS = {".pdf", ".txt", ".md", ".docx"}
+ALLOWED_EXTENSIONS = {".pdf", ".docx", ".pptx", ".html", ".htm", ".csv", ".txt", ".md"}
 MAX_CONTENT_LENGTH = int(_env("HREA_MAX_MB", "64")) * 1024 * 1024
 
 

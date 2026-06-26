@@ -1,7 +1,7 @@
 # HREA RAG — High Refractory Entropy Alloy Document Search
 
 A fast, **no-LLM** Retrieval-Augmented search engine. Upload your documents
-(PDF, DOCX, TXT, MD), ask a question in natural language, and instantly get the
+(PDF, DOCX, PPTX, HTML, CSV, TXT, MD), ask a question in natural language, and instantly get the
 most relevant passages back — with the source file, page number, and *how* each
 passage matched. No API keys, no cloud calls, fully offline.
 
@@ -70,7 +70,7 @@ A sample document is included at
 app.py                 Flask app + routes
 config.py              All settings (env-overridable)
 rag/
-  loaders.py           PDF / DOCX / TXT / MD loading (keeps page numbers)
+  loaders.py           PDF / DOCX / PPTX / HTML / CSV / TXT / MD loading (keeps page numbers)
   chunking.py          Recursive, overlap-aware text splitting
   embeddings.py        ChromaDB ONNX all-MiniLM-L6-v2 wrapper (lazy-loaded)
   vector_store.py      ChromaDB persistent vector store (cosine)
