@@ -41,8 +41,14 @@ You only need [Python 3.9+](https://www.python.org/downloads/) installed
 - **Windows:** double-click **`run.bat`**
 - **macOS / Linux:** run **`./run.sh`** in a terminal
 
-That's it. The first run sets up everything automatically and then your
-browser opens at <http://127.0.0.1:5000>. Later runs start instantly.
+That's it — you don't need to install anything else by hand. The launcher
+creates its own private environment, installs the dependencies, and starts
+the app; then your browser opens at <http://127.0.0.1:5000>. Later runs
+start instantly.
+
+> The **first run needs an internet connection** (to download the
+> dependencies and the ~80 MB search model). After that, the app works
+> fully offline.
 
 ### Or with Docker (one command)
 
